@@ -21,7 +21,7 @@
 	var run_script = function(x,y){
 		var util  = require('util'),
 		spawn = require('child_process').spawn,
-		ls    = spawn('python tiro.py', [x, y]);
+		ls    = spawn('echo', [x, y]);
 
 		ls.stdout.on('data', function (data) {    // register one or more handlers
 			console.log('stdout: ' + data);
