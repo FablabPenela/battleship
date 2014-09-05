@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<a href="" onClick="tiro(2,2)">Teste</a>
+
+
+	<table style="border: 1px solid #ccc;"> 
+		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td><td></td></tr>
+	</table>
+
+	<script type="text/javascript">
+	var tiro = function(px,py){
+		$.post( "/tiro", { x: px, y: py })
+		.done(function( data ) {
+			alert( "Result: " + data );
+		});
+	}
+	</script>
+</body>
+</html>
