@@ -2,25 +2,68 @@
 <head>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+	<style>
+	table, tbody, th, td {
+		border: 1px solid black;
+		width:200px;
+		height:20px;
+	}
+	</style>
 </head>
 <body>
-	<a href="" onClick="tiro(2,2)">Teste</a>
+	<input placeholder="user name" id="userEmailBox">
+	<button onClick="newUser()">Start</button>
 
-
-	<table style="border: 1px solid #ccc;"> 
-		<tr><td></td><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td></tr>
-		<tr><td></td><td></td><td></td><td></td></tr>
+	<table>
+		<tbody id="table1"></tbody>
 	</table>
 
 	<script type="text/javascript">
+	$(document).ready(function() {
+		createTable(10,10);
+	});
+
 	var tiro = function(px,py){
 		$.post( "/tiro", { x: px, y: py })
 		.done(function( data ) {
 			alert( "Result: " + data );
 		});
 	}
+
+	var newUser = function(){
+		$.post( "/newuser", { email: $("#userEmailBox").val()})
+		.done(function( data ) {
+			console.log( "Result: " + data );
+		});
+	}
+
+	var areWeReady = function(){
+		$.post( "/ready", {})
+		.done(function( data ) {
+			console.log( "Result: " + data );
+		});
+	}
+
+	var reset = function(){
+		$.post( "/reset", {})
+		.done(function( data ) {
+			console.log( "Result: " + data );
+		});
+	}
+
+	var createTable = function(w,h){
+		var htmlTable = "";
+		for (var i = 0; i < h; i++) {
+			htmlTable += "<tr>";
+			for (var j = 0; j < w; j++) {
+				htmlTable += "<td onClick='tiro("+j+","+i+")'></td>";
+			}	
+			htmlTable += "</tr>";
+		}
+
+		$("#table1").append(htmlTable);
+	};
+	
 	</script>
 </body>
 </html>

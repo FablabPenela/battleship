@@ -1,12 +1,21 @@
 {
-  "name"         : "AIDP-Website",
-  "version"      : "0.0.0",
-  "description"  : "AIDP Futsal trainning management",
-  "main"         : "server.js",
-  "author"       : "Francisco Couceiro",
-  "dependencies" : {
-    "express"    : "~4.0.0",
+  "name": "Battleship",
+  "version": "0.0.0",
+  "description": "AIDP Futsal trainning management",
+  "main": "server.js",
+  "author": "Francisco Couceiro",
+  "dependencies": {
+    "express": "~4.0.0",
     "morgan": "~1.0.0",
-    "body-parser" : "~1.0.0"
-    }
-  }
+    "body-parser": "~1.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "npm install"
+  },
+  "license": "BSD-2-Clause"
+}
